@@ -8,13 +8,15 @@
 
 <br>
 
-![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Linear%20Regression-F7931E?style=for-the-badge)
-![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
-![Plotly](https://img.shields.io/badge/Plotly-Visualization-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
+![RailPredict Home](screenshots/RailPredict_Homepage.png)
 
+![RailPredict Route Explorer](screenshots/Route_Page.png)
+
+![RailPredict Analytics](screenshots/Train_Analytics.png)
+
+![RailPredict Insights](screenshots/Train_Insights.png)
+
+![Model Performance Comparison](screenshots/Model_Comparision.png)
 <br>
 
 **An end-to-end Machine Learning project developed during my  
