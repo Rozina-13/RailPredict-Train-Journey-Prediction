@@ -1,247 +1,450 @@
-# 🚆 RailPredict — Train Journey Time Prediction System
+<div align="center">
 
-RailPredict is an end-to-end Machine Learning project developed as part of my Machine Learning Internship at Sysslan IT Solutions.
+# 🚆 RailPredict
 
-The system analyzes Indian train schedule and route data and predicts the total journey duration of a train using Machine Learning. The project covers the complete ML workflow — from data understanding and preprocessing to exploratory data analysis, model training, comparison, evaluation, and deployment through an interactive Streamlit dashboard.
+### Machine Learning-Based Train Journey Time Prediction System
+
+**From raw railway data → machine learning → interactive predictions**
+
+<br>
+
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Linear%20Regression-F7931E?style=for-the-badge)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Processing-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-Visualization-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
+
+<br>
+
+**An end-to-end Machine Learning project developed during my  
+Machine Learning Internship at Sysslan IT Solutions.**
+
+</div>
+
+---
+
+## 🌟 About RailPredict
+
+**RailPredict** is an end-to-end Machine Learning system designed to predict the **total duration of a train journey** using important journey characteristics.
+
+The system uses:
+
+> 📏 **Total Distance** + 🚉 **Number of Stops** → 🤖 **Machine Learning Model** → ⏱️ **Predicted Journey Duration**
+
+The project covers the complete ML lifecycle — starting from raw railway schedule data and progressing through preprocessing, feature engineering, exploratory data analysis, model training, evaluation, comparison, and an interactive **Streamlit dashboard**.
 
 ---
 
 ## 🎯 Project Objective
 
-The main objective of RailPredict is to build a Machine Learning system capable of predicting train journey duration using important journey characteristics.
+The objective of RailPredict is to build a Machine Learning system that learns patterns from historical train journey data and estimates journey duration using:
 
-The project focuses on:
+| 📥 Input Feature | Description |
+|---|---|
+| 📏 `Total_Distance` | Total distance travelled by the train |
+| 🚉 `Number_of_Stops` | Number of stops in the journey |
 
-- Understanding and inspecting train journey data
-- Cleaning and preprocessing raw schedule data
-- Engineering useful Machine Learning features
-- Analyzing relationships between journey characteristics
-- Training and evaluating prediction models
-- Comparing different feature configurations
-- Building an interactive prediction system
+### 🎯 Target
 
----
-
-## 📊 Dataset
-
-The project uses train schedule and route information containing details such as:
-
-- Train number
-- Station name
-- Arrival time
-- Departure time
-- Distance
-- Stop sequence
-
-The raw station-level dataset is processed and transformed into a train-level Machine Learning dataset.
-
-### Machine Learning Features
-
-**Input Features (X):**
-
-- `Total_Distance`
-- `Number_of_Stops`
-
-**Target Variable (y):**
-
-- `Journey_Duration_Minutes`
+```text
+Journey_Duration_Minutes
+```
 
 ---
 
-## 🧠 Machine Learning Workflow
+# 🖥️ RailPredict Dashboard
 
-The internship project was completed through six levels.
+## 🏠 Journey Prediction
 
-### Level 1 — Understanding the Data
+Enter the **total journey distance** and **number of stops**, and RailPredict estimates the duration of the complete train journey.
 
-- Inspected dataset size and structure
-- Examined columns and data types
-- Identified train-wise starting and ending stations
-- Calculated descriptive statistics
-- Checked missing values
-- Checked duplicate records
-- Identified incorrect or inconsistent values
+![RailPredict Home](screenshots/home-prediction.png)
 
-### Level 2 — Data Cleaning & Feature Creation
+---
 
-- Cleaned the train schedule dataset
-- Handled missing and duplicate data
-- Converted arrival and departure times into a usable format
-- Calculated complete journey duration for each train
-- Created total distance as a feature
-- Created number of stops as a feature
-- Generated the train-level Machine Learning dataset
+## 🗺️ Route Explorer
 
-### Level 3 — Exploratory Data Analysis
+Explore available train routes between selected stations.
 
-Exploratory Data Analysis was performed to understand relationships within the data.
+The Route Explorer provides:
 
-Visualizations include:
+- 🚉 Station sequence
+- 🚆 Available trains
+- 🕐 Arrival information
+- 🕐 Departure information
+- 📏 Route distance
+- 📍 Number of stops
 
-- Distance vs Journey Duration
-- Number of Stops vs Journey Duration
-- Correlation analysis
-- Train-wise stop analysis
-- Pivot-table based exploration
+![RailPredict Route Explorer](screenshots/route-explorer.png)
 
-### Level 4 — Model Training & Evaluation
+---
 
-The dataset was divided into training and testing sets using an 80/20 split.
+## 📊 Interactive Analytics
+
+RailPredict includes interactive visualizations for exploring relationships and patterns within the train journey dataset.
+
+![RailPredict Analytics](screenshots/analytics.png)
+
+---
+
+## 💡 Data Insights
+
+The Insights dashboard presents important observations derived from the processed train journey data.
+
+![RailPredict Insights](screenshots/insights.png)
+
+---
+
+# 🧠 Machine Learning Model
+
+## ⚙️ Algorithm
+
+The final prediction system uses:
+
+### **Linear Regression**
+
+The model learns the relationship between:
+
+```text
+Total Distance
+      +
+Number of Stops
+      ↓
+Linear Regression
+      ↓
+Journey Duration
+```
+
+---
+
+## 📈 Model Performance
+
+<div align="center">
+
+| 📊 Metric | 🎯 Result |
+|---|---:|
+| **MAE** | **≈ 58.73 minutes** |
+| **RMSE** | **≈ 157.58 minutes** |
+| **R² Score** | **≈ 0.945** |
+
+</div>
+
+### What does this mean?
+
+**MAE (Mean Absolute Error)** indicates that predictions differ from the actual journey duration by approximately **58.73 minutes on average**.
+
+The **R² score of approximately 0.945** indicates that the selected features explain a large proportion of the variation in journey duration within this dataset.
+
+---
+
+# ⚔️ Model Comparison
+
+Two Linear Regression configurations were tested.
+
+| 🤖 Model | 📥 Features | MAE ↓ | RMSE ↓ |
+|---|---|---:|---:|
+| Model 1 | Distance Only | 67.51 | 167.48 |
+| 🏆 Model 2 | Distance + Stops | **58.73** | **157.58** |
+
+The **Distance + Stops** configuration produced lower MAE and RMSE and was therefore selected as the final model for RailPredict.
+
+![Model Comparison](screenshots/model-comparison.png)
+
+---
+
+# 🔬 Complete Machine Learning Workflow
+
+The project was developed through **six internship levels**.
+
+```text
+📂 Raw Train Data
+        ↓
+🔍 Data Understanding
+        ↓
+🧹 Data Cleaning
+        ↓
+⚙️ Feature Engineering
+        ↓
+📊 Exploratory Data Analysis
+        ↓
+🧠 Model Training
+        ↓
+📏 Model Evaluation
+        ↓
+⚔️ Model Comparison
+        ↓
+🏆 Final Model Selection
+        ↓
+🖥️ Streamlit Application
+```
+
+---
+
+## 1️⃣ Data Understanding
+
+The original train dataset was explored to understand its structure and quality.
+
+Tasks included:
+
+- Dataset size and column inspection
+- Train-wise starting and ending stations
+- Distance and stop statistics
+- Missing-value analysis
+- Duplicate detection
+- Incorrect/inconsistent-value checks
+
+---
+
+## 2️⃣ Data Cleaning & Feature Engineering
+
+The raw station-level data was cleaned and transformed into a train-level Machine Learning dataset.
+
+Important features created:
+
+```text
+Total_Distance
+Number_of_Stops
+Journey_Duration_Minutes
+```
+
+Arrival and departure information was processed to calculate the duration of complete train journeys.
+
+---
+
+## 3️⃣ Exploratory Data Analysis
+
+EDA was performed to understand relationships between journey characteristics.
+
+Analysis included:
+
+📏 **Distance vs Journey Duration**
+
+🚉 **Stops vs Journey Duration**
+
+🔥 **Correlation Analysis**
+
+📊 **Train-wise Stop Analysis**
+
+---
+
+## 4️⃣ Model Training
+
+The Machine Learning dataset was divided into:
+
+```text
+80% → Training Data
+20% → Testing Data
+```
 
 A **Linear Regression** model was trained using:
 
-- Total Distance
-- Number of Stops
-
-The model was evaluated using:
-
-- Mean Absolute Error (MAE)
-- Root Mean Squared Error (RMSE)
-- R² Score
-- Actual vs Predicted visualization
-
-### Model Performance
-
-| Metric | Result |
-|---|---:|
-| MAE | ~58.73 minutes |
-| RMSE | ~157.58 minutes |
-| R² Score | ~0.945 |
-
-The R² score indicates that the model explains a large proportion of the variation in journey duration within this dataset.
+```python
+X = ["Total_Distance", "Number_of_Stops"]
+y = "Journey_Duration_Minutes"
+```
 
 ---
 
-## ⚖️ Level 5 — Model Comparison
+## 5️⃣ Model Comparison
 
-Two Linear Regression configurations were compared.
+Two models were evaluated:
 
-### Model 1 — Distance Only
+### Model 1
+```text
+Distance → Journey Duration
+```
 
-Uses:
+### Model 2
+```text
+Distance + Stops → Journey Duration
+```
 
-`Total_Distance`
-
-Performance:
-
-- MAE: ~67.51 minutes
-- RMSE: ~167.48 minutes
-
-### Model 2 — Distance + Stops
-
-Uses:
-
-`Total_Distance`
-`Number_of_Stops`
-
-Performance:
-
-- MAE: ~58.73 minutes
-- RMSE: ~157.58 minutes
-- R²: ~0.945
-
-### Final Model Selection
-
-The **Distance + Stops Linear Regression model** achieved lower MAE and RMSE compared with the Distance Only model.
-
-Therefore, the **Distance + Stops model was selected as the final model** for train journey duration prediction.
+The multi-feature model achieved lower prediction errors and was selected as the final model.
 
 ---
 
-## 🖥️ Level 6 — Interactive ML System
+## 6️⃣ Interactive ML System
 
-The final Machine Learning system was developed as an interactive **Streamlit web application** called **RailPredict**.
+The final model was integrated into **RailPredict**, an interactive Streamlit application.
 
-The application provides a user-friendly interface for interacting with the trained model and exploring train routes.
+The application combines:
 
-### RailPredict Features
+**Prediction + Route Exploration + Analytics + Insights**
 
-#### 🚆 Journey Prediction
-
-Users can enter:
-
-- Total journey distance
-- Number of stops
-
-The Machine Learning model predicts the estimated duration of the complete train journey.
-
-#### 🗺️ Route Explorer
-
-Users can:
-
-- Select a starting station
-- Select a valid destination station
-- View trains operating between the selected stations
-- Explore station sequences
-- View arrival and departure information
-- Calculate route distance
-- View the number of stops
-
-#### 📊 Analytics
-
-Interactive visualizations help explore:
-
-- Journey distance
-- Journey duration
-- Number of stops
-- Model behavior
-- Dataset patterns
-
-#### 💡 Insights
-
-The dashboard presents important observations derived from the processed train journey dataset and Machine Learning analysis.
+into one dashboard.
 
 ---
 
-## 🛠️ Technologies Used
+# 🛠️ Technology Stack
 
-### Programming
-- Python
+<div align="center">
 
-### Data Processing
-- Pandas
-- NumPy
+| Category | Technologies |
+|---|---|
+| 💻 Programming | Python |
+| 🧹 Data Processing | Pandas, NumPy |
+| 🤖 Machine Learning | Scikit-learn |
+| 📈 ML Algorithm | Linear Regression |
+| 📊 Visualization | Plotly, Matplotlib |
+| 🌐 Web Application | Streamlit |
+| 📓 Development | Jupyter Notebook, VS Code |
+| 🔧 Version Control | GitHub |
 
-### Machine Learning
-- Scikit-learn
-- Linear Regression
-- Train/Test Split
-- MAE
-- RMSE
-- R²
-
-### Data Visualization
-- Plotly
-
-### Web Application
-- Streamlit
-
-### Development Tools
-- Jupyter Notebook
-- Visual Studio Code
-- Git
-- GitHub
+</div>
 
 ---
 
-## 📁 Project Structure
+# 📁 Project Structure
 
 ```text
-SYSSLAN_INTERNSHIP/
+RailPredict-Train-Journey-Prediction/
 │
-├── Dataset/
+├── 📂 Dataset/
 │   ├── ML Intern Dataset.csv
 │   └── ML_Train_Level_Data.csv
 │
-├── app.py
+├── 📂 screenshots/
+│   ├── home-prediction.png
+│   ├── route-explorer.png
+│   ├── analytics.png
+│   ├── insights.png
+│   └── model-comparison.png
 │
-├── Level_1_Data_Understanding.ipynb
-├── Level_2_Data_Cleaning_Feature_Creation.ipynb
-├── Level_3_EDA_Visualization.ipynb
-├── Level_4_Model_Training.ipynb
-├── Level_5_Model_Comparision.ipynb
-├── Level_6_Interactive_System.ipynb
+├── 📓 Level_1_Data_Understanding.ipynb
+├── 📓 Level_2_Data_Cleaning_Feature_Creation.ipynb
+├── 📓 Level_3_EDA_Visualization.ipynb
+├── 📓 Level_4_Model_Training.ipynb
+├── 📓 Level_5_Model_Comparision.ipynb
+├── 📓 Level_6_Interactive_System.ipynb
 │
-├── requirements.txt
-├── README.md
-└── .gitignore
+├── 🚆 app.py
+├── 📋 requirements.txt
+├── 📝 README.md
+└── ⚙️ .gitignore
+```
+
+---
+
+# 🚀 Run RailPredict Locally
+
+### 1️⃣ Download or clone the repository
+
+```bash
+git clone https://github.com/Rozina-13/RailPredict-Train-Journey-Prediction.git
+```
+
+Move into the project directory:
+
+```bash
+cd RailPredict-Train-Journey-Prediction
+```
+
+### 2️⃣ Create a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+### 3️⃣ Activate it
+
+**macOS / Linux**
+
+```bash
+source .venv/bin/activate
+```
+
+**Windows**
+
+```bash
+.venv\Scripts\activate
+```
+
+### 4️⃣ Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5️⃣ Launch RailPredict 🚆
+
+```bash
+streamlit run app.py
+```
+
+The application will open in your browser.
+
+---
+
+# ⚠️ Project Scope
+
+RailPredict's Machine Learning model predicts the duration of a **complete train journey** using:
+
+```text
+Total Distance + Number of Stops
+```
+
+The **Route Explorer** analyzes station-to-station route information.
+
+Route Explorer results should therefore not be interpreted as separate station-to-station Machine Learning journey-duration predictions.
+
+---
+
+# 🔮 Future Enhancements
+
+RailPredict can be extended with:
+
+- 🌦️ Weather information
+- 🚦 Operational and traffic conditions
+- ⏳ Historical delay information
+- 🤖 Advanced regression algorithms
+- 🔍 Model explainability
+- ☁️ Cloud deployment
+- 🔄 Real-time railway information
+- 📈 Additional journey-related features
+
+---
+
+# 🎓 Internship Project
+
+<div align="center">
+
+### Machine Learning Internship  
+### **Sysslan IT Solutions**
+
+This project provided practical experience across the complete Machine Learning lifecycle:
+
+**Data → Analysis → Features → Machine Learning → Evaluation → Application**
+
+</div>
+
+---
+
+# 👩‍💻 Developed By
+
+<div align="center">
+
+## **Rozina Sheereen**
+
+🎓 Final-Year B.Sc. Artificial Intelligence & Machine Learning Student
+
+💡 Aspiring **AI / Generative AI Engineer**
+
+<br>
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rozina13)
+[![GitHub](https://img.shields.io/badge/GitHub-Rozina--13-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Rozina-13)
+
+</div>
+
+---
+
+<div align="center">
+
+### 🚆 RailPredict
+
+**Turning railway route data into intelligent journey-time predictions.**
+
+⭐ If you found this project interesting, consider starring the repository!
+
+</div>
